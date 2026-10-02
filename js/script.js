@@ -1,3 +1,5 @@
+// ==================== VARIABLES ====================
+
 let transactions = [];
 let expenseChart = null;
 
@@ -13,6 +15,9 @@ const limitMessage = document.getElementById("limit-message");
 const nameError = document.getElementById("name-error");
 const amountError = document.getElementById("amount-error");
 const categoryError = document.getElementById("category-error");
+const themeToggle = document.getElementById("theme-toggle");
+
+// ==================== VALIDATION ====================
 
 function validateInput() {
     let isValid = true;
@@ -38,6 +43,8 @@ function validateInput() {
 
     return isValid;
 }
+
+// ==================== ADD TRANSACTION ====================
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -65,6 +72,8 @@ form.addEventListener("submit", function (event) {
 
     form.reset();
 });
+
+// ==================== DISPLAY TRANSACTIONS ====================
 
 function renderTransactions() {
     transactionList.innerHTML = "";
@@ -117,6 +126,8 @@ function renderTransactions() {
     });
 }
 
+// ==================== TOTAL SPENDING ====================
+
 function calculateTotal() {
     let total = 0;
 
@@ -126,6 +137,8 @@ function calculateTotal() {
 
     totalAmount.textContent = "Rp " + total.toLocaleString("id-ID");
 }
+
+// ==================== SPENDING LIMIT ====================
 
 function checkSpendingLimit() {
     const limit = Number(limitInput.value);
@@ -149,6 +162,8 @@ function checkSpendingLimit() {
     }
 }
 
+// ==================== CHART DATA ====================
+
 function getCategoryTotals() {
     const categoryTotals = {
         Food: 0,
@@ -162,6 +177,8 @@ function getCategoryTotals() {
 
     return categoryTotals;
 }
+
+// ==================== SPENDING CHART ====================
 
 function renderChart() {
     const categoryTotals = getCategoryTotals();
@@ -207,6 +224,8 @@ function renderChart() {
     });
 }
 
+// ==================== LOCAL STORAGE ====================
+
 function saveTransactions() {
     localStorage.setItem("transactions", JSON.stringify(transactions));
 }
@@ -219,21 +238,27 @@ function loadTransactions() {
     }
 }
 
+// ==================== INITIAL DISPLAY ====================
+
 loadTransactions();
 renderTransactions();
 calculateTotal();
 renderChart();
 checkSpendingLimit();
 
+// ==================== SORT ====================
+
 sortSelect.addEventListener("change", function () {
     renderTransactions();
 });
+
+// ==================== SPENDING LIMIT INPUT ====================
 
 limitInput.addEventListener("input", function () {
     checkSpendingLimit();
 });
 
-const themeToggle = document.getElementById("theme-toggle");
+// ==================== DARK / LIGHT MODE ====================
 
 themeToggle.addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");

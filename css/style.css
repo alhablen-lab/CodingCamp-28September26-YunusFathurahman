@@ -1,3 +1,5 @@
+/* ==================== GLOBAL ==================== */
+
 * {
     box-sizing: border-box;
 }
@@ -8,6 +10,8 @@ body {
     background-color: #f5f7fa;
     color: #1f2937;
 }
+
+/* ==================== LAYOUT ==================== */
 
 main {
     max-width: 900px;
@@ -27,10 +31,12 @@ section {
     border-radius: 12px;
 }
 
-section h2{
+section h2 {
     margin-top: 0;
     margin-bottom: 16px;
 }
+
+/* ==================== FORM ==================== */
 
 form label {
     display: block;
@@ -72,11 +78,15 @@ form button:hover {
     background-color: #1d4ed8;
 }
 
+/* ==================== TOTAL SPENDING ==================== */
+
 #total-amount {
     font-size: 28px;
     font-weight: bold;
     margin: 0;
 }
+
+/* ==================== TRANSACTION LIST ==================== */
 
 #transaction-list {
     max-height: 300px;
@@ -106,6 +116,8 @@ form button:hover {
     background-color: #b91c1c;
 }
 
+/* ==================== CHART ==================== */
+
 #expense-chart {
     max-width: 400px;
     max-height: 400px;
@@ -117,28 +129,19 @@ form button:hover {
     color: #6b7280;
 }
 
-@media (max-width: 600px) {
-    main {
-        padding: 12px;
-    }
+/* ==================== SPENDING LIMIT ==================== */
 
-    header {
-        padding: 20px 12px;
-    }
-
-    section {
-        padding: 16px;
-    }
-
-    #total-amount {
-        font-size: 24px;
-    }
-
-    #expense-chart {
-        max-width: 100%;
-        max-height: 300px;
-    }
+.limit-warning {
+    color: red;
+    font-weight: bold;
 }
+
+.limit-safe {
+    color: green;
+    font-weight: bold;
+}
+
+/* ==================== DARK / LIGHT MODE ==================== */
 
 #theme-toggle {
     padding: 10px 16px;
@@ -154,7 +157,6 @@ form button:hover {
     opacity: 0.9;
 }
 
-/* Dark Mode */
 body.dark-mode {
     background-color: #111827;
     color: #f9fafb;
@@ -179,12 +181,27 @@ body.dark-mode #chart-placeholder {
     color: #d1d5db;
 }
 
-.limit-warning {
-    color: red;
-    font-weight: bold;
-}
+/* ==================== RESPONSIVE ==================== */
 
-.limit-safe {
-    color: green;
-    font-weight: bold;
+@media (max-width: 600px) {
+    main {
+        padding: 12px;
+    }
+
+    header {
+        padding: 20px 12px;
+    }
+
+    section {
+        padding: 16px;
+    }
+
+    #total-amount {
+        font-size: 24px;
+    }
+
+    #expense-chart {
+        max-width: 100%;
+        max-height: 300px;
+    }
 }
